@@ -1,0 +1,77 @@
+
+=== dataset1.csv shape: (907, 12)
+
+-- dtypes --
+start_time                    object
+bat_landing_to_food          float64
+habit                         object
+rat_period_start              object
+rat_period_end                object
+seconds_after_rat_arrival      int64
+risk                           int64
+reward                         int64
+month                          int64
+sunset_time                   object
+hours_after_sunset           float64
+season                         int64
+dtype: object
+
+-- head --
+         start_time  bat_landing_to_food habit  rat_period_start    rat_period_end  seconds_after_rat_arrival  risk  reward  month       sunset_time  hours_after_sunset  season
+0  30/12/2017 18:37            16.000000   rat  30/12/2017 18:35  30/12/2017 18:38                        108     1       0      0  30/12/2017 16:45            1.870833       0
+1  30/12/2017 19:51             0.074016  fast  30/12/2017 19:50  30/12/2017 19:55                         17     0       1      0  30/12/2017 16:45            3.100833       0
+2  30/12/2017 19:51             4.000000  fast  30/12/2017 19:50  30/12/2017 19:55                         41     0       1      0  30/12/2017 16:45            3.107500       0
+3  30/12/2017 19:52            10.000000   rat  30/12/2017 19:50  30/12/2017 19:55                        111     1       0      0  30/12/2017 16:45            3.126944       0
+4  30/12/2017 19:54            15.000000   rat  30/12/2017 19:50  30/12/2017 19:55                        194     1       0      0  30/12/2017 16:45            3.150000       0
+
+-- describe (numeric) --
+                           count        mean  ...         75%         max
+bat_landing_to_food        907.0   11.713134  ...   11.500000  443.000000
+seconds_after_rat_arrival  907.0  282.877619  ...  446.500000  949.000000
+risk                       907.0    0.495039  ...    1.000000    1.000000
+reward                     907.0    0.533627  ...    1.000000    1.000000
+month                      907.0    3.800441  ...    5.000000    5.000000
+hours_after_sunset         907.0    5.531863  ...    7.402778   12.091944
+season                     907.0    0.833517  ...    1.000000    1.000000
+
+[7 rows x 8 columns]
+
+=== dataset2.csv shape: (2123, 7)
+
+-- dtypes --
+time                   object
+month                   int64
+hours_after_sunset    float64
+bat_landing_number      int64
+food_availability     float64
+rat_minutes           float64
+rat_arrival_number      int64
+dtype: object
+
+-- head --
+               time  month  hours_after_sunset  bat_landing_number  food_availability  rat_minutes  rat_arrival_number
+0  26/12/2017 16:13      0                -0.5                  20           4.000000          0.0                   0
+1  26/12/2017 16:43      0                 0.0                  28           4.000000          0.0                   0
+2  26/12/2017 17:13      0                 0.5                  25           4.000000          0.0                   0
+3  26/12/2017 17:43      0                 1.0                  71           4.000000          0.0                   0
+4  26/12/2017 18:13      0                 1.5                  44           3.753857          0.0                   0
+
+-- describe (numeric) --
+                     count       mean        std  ...        50%        75%    max
+month               2123.0   3.083844   1.642261  ...   4.000000   4.000000    6.0
+hours_after_sunset  2123.0   5.265426   4.076188  ...   5.000000   8.500000   13.5
+bat_landing_number  2123.0  32.083373  25.614431  ...  27.000000  48.000000  178.0
+food_availability   2123.0   2.445874   1.218353  ...   2.951877   3.105873    4.0
+rat_minutes         2123.0   1.994442   6.793397  ...   0.000000   0.158333  120.0
+rat_arrival_number  2123.0   0.444654   1.019195  ...   0.000000   1.000000   17.0
+
+[6 rows x 8 columns]
+
+Proportion of risk-taking (risk==1): 0.49503858875413453
+
+seconds_after_rat_arrival by risk:
+      count  median        mean         std
+risk                                       
+0       458   202.5  277.598253  241.453440
+1       449   210.0  288.262806  240.635575
+\n

@@ -1,0 +1,59 @@
+=== Statistical tests ===
+
+Contingency table (rat_present_at_landing x risk):
+risk                      0    1
+rat_present_at_landing          
+0                       455  445
+1                         3    3
+
+Fisher exact p = 1.00000, oddsratio = 1.022
+
+=== Logistic regression ===
+Model dataframe shape: (906, 5)
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                   risk   No. Observations:                  906
+Model:                          Logit   Df Residuals:                      901
+Method:                           MLE   Df Model:                            4
+Date:                Tue, 14 Oct 2025   Pseudo R-squ.:                  0.3069
+Time:                        09:20:12   Log-Likelihood:                -435.23
+converged:                       True   LL-Null:                       -627.94
+Covariance Type:            nonrobust   LLR p-value:                 3.962e-82
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                     1.5288      0.298      5.124      0.000       0.944       2.114
+C(season)[T.1]                0.3054      0.237      1.291      0.197      -0.158       0.769
+seconds_after_rat_arrival  5.655e-05      0.000      0.157      0.875      -0.001       0.001
+hours_after_sunset           -0.0355      0.035     -1.005      0.315      -0.105       0.034
+reward                       -2.9905      0.177    -16.915      0.000      -3.337      -2.644
+=============================================================================================
+
+Odds ratios and 95% CI:
+                                 OR    CI_low   CI_high             p
+Intercept                  4.612508  2.570214  8.277612  2.993614e-07
+C(season)[T.1]             1.357121  0.853606  2.157643  1.967545e-01
+seconds_after_rat_arrival  1.000057  0.999351  1.000763  8.752443e-01
+hours_after_sunset         0.965123  0.900575  1.034297  3.148211e-01
+reward                     0.050262  0.035543  0.071077  3.487676e-64
+
+Interaction model summary:
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                   risk   No. Observations:                  906
+Model:                          Logit   Df Residuals:                      900
+Method:                           MLE   Df Model:                            5
+Date:                Tue, 14 Oct 2025   Pseudo R-squ.:                  0.3078
+Time:                        09:20:13   Log-Likelihood:                -434.63
+converged:                       True   LL-Null:                       -627.94
+Covariance Type:            nonrobust   LLR p-value:                 2.272e-81
+============================================================================================================
+                                               coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------
+Intercept                                    1.7662      0.370      4.776      0.000       1.041       2.491
+C(season)[T.1]                               0.0441      0.335      0.132      0.895      -0.612       0.700
+seconds_after_rat_arrival                   -0.0010      0.001     -0.982      0.326      -0.003       0.001
+seconds_after_rat_arrival:C(season)[T.1]     0.0012      0.001      1.111      0.267      -0.001       0.003
+hours_after_sunset                          -0.0398      0.036     -1.120      0.263      -0.109       0.030
+reward                                      -2.9879      0.177    -16.890      0.000      -3.335      -2.641
+============================================================================================================
